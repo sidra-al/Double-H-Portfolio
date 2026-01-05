@@ -1,0 +1,259 @@
+.project-detail {
+  padding: 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.project-detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.btn-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: white;
+  color: #475569;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 15px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.btn-back:hover {
+  border-color: #cbd5e1;
+  background: #f8fafc;
+}
+
+.header-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.btn-edit-header,
+.btn-delete-header {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 15px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+}
+
+.btn-edit-header {
+  background: #f1f5f9;
+  color: #475569;
+}
+
+.btn-edit-header:hover {
+  background: #e2e8f0;
+}
+
+.btn-delete-header {
+  background: #fee;
+  color: #dc2626;
+  border: 1px solid #fcc;
+}
+
+.btn-delete-header:hover {
+  background: #fcc;
+}
+
+.project-detail-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+}
+
+.project-main-info {
+  background: white;
+  border-radius: 12px;
+  padding: 32px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.project-main-info h1 {
+  font-size: 36px;
+  color: #1e293b;
+  margin: 0 0 24px 0;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.project-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  color: #64748b;
+  font-size: 15px;
+}
+
+.project-meta svg {
+  flex-shrink: 0;
+  color: #94a3b8;
+}
+
+.project-meta .project-link {
+  color: #667eea;
+  text-decoration: none;
+  word-break: break-all;
+}
+
+.project-meta .project-link:hover {
+  text-decoration: underline;
+}
+
+.project-description-full {
+  margin-top: 32px;
+  padding-top: 32px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.project-description-full h2 {
+  font-size: 20px;
+  color: #1e293b;
+  margin: 0 0 16px 0;
+  font-weight: 600;
+}
+
+.project-description-full p {
+  color: #475569;
+  font-size: 16px;
+  line-height: 1.8;
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.project-images-section {
+  background: white;
+  border-radius: 12px;
+  padding: 32px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.project-images-section h2 {
+  font-size: 24px;
+  color: #1e293b;
+  margin: 0 0 24px 0;
+  font-weight: 700;
+}
+
+.main-image-container {
+  position: relative;
+  width: 100%;
+  margin-bottom: 24px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #f1f5f9;
+  aspect-ratio: 16 / 9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #f8fafc;
+}
+
+.image-error {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #cbd5e1;
+  gap: 12px;
+}
+
+.image-error p {
+  margin: 0;
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+.image-thumbnails {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 16px;
+}
+
+.thumbnail {
+  position: relative;
+  width: 100%;
+  padding-top: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #f1f5f9;
+  border: 3px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.thumbnail:hover {
+  border-color: #cbd5e1;
+  transform: scale(1.05);
+}
+
+.thumbnail.active {
+  border-color: #667eea;
+  box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.2);
+}
+
+.thumbnail img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.loading {
+  text-align: center;
+  padding: 60px 20px;
+  color: #64748b;
+  font-size: 18px;
+}
+
+.error-banner {
+  background: #fee;
+  color: #c33;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  border: 1px solid #fcc;
+}
+
+@media (min-width: 1024px) {
+  .project-detail-content {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .project-images-section {
+    grid-column: 1 / -1;
+  }
+}
+
