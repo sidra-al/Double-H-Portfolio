@@ -1,0 +1,35 @@
+@import "tailwindcss";
+@keyframes borderLoop {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 200% 50%;
+    }
+}
+
+.animate-borderLoop {
+    background-size: 200% 200%;
+    animation: borderLoop 4s linear infinite;
+    /* سرعة أبطأ وواضحة */
+}
+
+
+/* ------------------ */
+
+@keyframes bookOpenRight {
+    from {
+        opacity: 0;
+        transform: rotateY(-90deg);
+        transform-origin: right;
+    }
+    to {
+        opacity: 1;
+        transform: rotateY(0deg);
+        transform-origin: right;
+    }
+}
+
+.animate-bookOpenRight {
+    animation: bookOpenRight 0.6s ease-out forwards;
+}
