@@ -8,9 +8,10 @@ const API_CONFIG = {
   },
   // Production
   production: {
-    baseURL: 'https://your-production-domain.com',
-    projects: 'https://your-production-domain.com/api/v1/projects',
-    partners: 'https://your-production-domain.com/api/v1/partners',
+    baseURL: 'https://double-h-portfolio.vercel.app',
+    projects: 'https://double-h-portfolio.vercel.app/api/v1/projects',
+    partners: 'https://double-h-portfolio.vercel.app/api/v1/partners',
+    hero: 'https://double-h-portfolio.vercel.app/api/v1/hero',
   },
 };
 
