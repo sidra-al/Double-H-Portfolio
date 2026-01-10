@@ -14,10 +14,35 @@ const ProjectsSection = () => {
     const fetchProjects = async () => {
       try {
         setLoading(true);
-        const response = await fetch(API_PROJECTS);
+        setError(null);
         
+        // Make fetch request without credentials to avoid auth issues
+        const response = await fetch(API_PROJECTS, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          // Don't send credentials for public routes
+          credentials: 'omit',
+        });
+        
+        // Log response for debugging
         if (!response.ok) {
-          throw new Error('Failed to fetch projects');
+          const errorText = await response.text();
+          console.error('Projects API Error:', {
+            status: response.status,
+            statusText: response.statusText,
+            url: API_PROJECTS,
+            error: errorText
+          });
+          
+          if (response.status === 401) {
+            throw new Error('Unauthorized: Check API configuration');
+          } else if (response.status === 404) {
+            throw new Error('API endpoint not found');
+          } else {
+            throw new Error(`Failed to fetch projects: ${response.status} ${response.statusText}`);
+          }
         }
         
         const result = await response.json();
@@ -45,7 +70,7 @@ const ProjectsSection = () => {
         }
       } catch (err) {
         console.error('Error fetching projects:', err);
-        setError(err.message);
+        setError(err.message || 'Failed to load projects');
         setProjects([]);
       } finally {
         setLoading(false);

@@ -1,32 +1,31 @@
 // API Configuration
-const API_CONFIG = {
-  // Local development
-  local: {
-    baseURL: 'https://double-h-portfolio.vercel.app',
-    projects: 'https://double-h-portfolio.vercel.app/api/v1/projects',
-    partners: 'https://double-h-portfolio.vercel.app/api/v1/partners',
-  },
-  // Production
-  production: {
-    baseURL: 'https://double-h-portfolio-git-main-mahmouds-projects-a72a8653.vercel.app/',
-    projects: 'https://double-h-portfolio-git-main-mahmouds-projects-a72a8653.vercel.app/api/v1/projects',
-    partners: 'https://double-h-portfolio-git-main-mahmouds-projects-a72a8653.vercel.app//api/v1/partners',
-    hero: 'https://double-h-portfolio.vercel.app/api/v1/hero',
-  },
+// Use environment variable for API base URL
+const getApiBaseUrl = () => {
+  const envUrl = import.meta.env.VITE_API_BASE_URL;
+  if (envUrl) {
+    // Remove /api/v1 if present to get base URL
+    return envUrl.replace('/api/v1', '');
+  }
+  // Fallback based on environment
+  return import.meta.env.DEV 
+    ? 'http://localhost:3000' 
+    : 'https://double-h-portfolio.vercel.app';
 };
 
-// Determine which environment to use
-const isDevelopment = import.meta.env.DEV || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-const currentEnv = isDevelopment ? API_CONFIG.local : API_CONFIG.production;
+const API_BASE_URL = getApiBaseUrl();
 
-// Export API endpoints
-export const API_BASE_URL = currentEnv.baseURL;
-export const API_PROJECTS = currentEnv.projects;
-export const API_PARTNERS = currentEnv.partners;
+// API endpoints
+export const API_PROJECTS = `${API_BASE_URL}/api/v1/projects`;
+export const API_PARTNERS = `${API_BASE_URL}/api/v1/partners`;
+export const API_HERO = `${API_BASE_URL}/api/v1/hero`;
+
+// Export API base URL
+export { API_BASE_URL };
 
 export default {
   API_BASE_URL,
   API_PROJECTS,
   API_PARTNERS,
+  API_HERO,
 };
 
