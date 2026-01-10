@@ -10,7 +10,13 @@ const dotenv = require('dotenv');
 dotenv.config();
 const connectDB = require('./config/db');
 
-app.use(cors());
+const corsOptions = {
+    origin: 'https://double-h-portfolio.vercel.app',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+  };
+  
+  app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use('/uploads', express.static('uploads'));
