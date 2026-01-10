@@ -22,7 +22,7 @@ const corsOptions = {
         const allowedOrigins = [
             'https://double-h-portfolio-tvgh.vercel.app',
             'https://double-h-portfolio.vercel.app/api/v1/projects',
-
+            "https://double-h-portfolio-tvgh-git-main-mahmouds-projects-a72a8653.vercel.app/login",
             'http://localhost:5173',
             'http://localhost:3000',
             'http://127.0.0.1:5173',
